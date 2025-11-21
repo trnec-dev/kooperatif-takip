@@ -3,14 +3,14 @@ import pandas as pd
 from datetime import date, datetime
 
 # --- AYARLAR ---
-BASLANGIC_TARIHI = date(2025, 5, 18)
+BASLANGIC_TARIHI = date(2025, 5, 19)
 YILLIK_FAIZ_ORANI = 0.24
 SENE_GUNU = 365
 
-st.set_page_config(page_title="Kooperatif Faiz Takip", layout="wide")
+st.set_page_config(page_title="Yakacity Kooperatif Faiz Takip", layout="wide")
 
 # --- BAŞLIK ---
-st.title("🏠 Kooperatif Üye Borç ve Faiz Hesaplama Sistemi")
+st.title("🏠 Yakacity Kooperatif Üye Borç ve Faiz Hesaplama Sistemi")
 st.markdown(f"**Başlangıç Tarihi:** {BASLANGIC_TARIHI.strftime('%d.%m.%Y')} | **Yıllık Faiz:** %{YILLIK_FAIZ_ORANI*100}")
 
 # --- YAN MENÜ (VERİ GİRİŞİ) ---
@@ -18,7 +18,7 @@ st.sidebar.header("Üye İşlemleri")
 
 # 1. Üye Bilgileri
 uye_adi = st.sidebar.text_input("Üye Adı Soyadı", "Ahmet Yılmaz")
-baslangic_borcu = st.sidebar.number_input("Ana Borç Tutarı (TL)", value=100000.0, step=1000.0)
+baslangic_borcu = st.sidebar.number_input("Ana Borç Tutarı (TL)", value=123250.0, step=1000.0)
 
 # 2. Ödemeler
 st.sidebar.subheader("Ödeme Girişi")
@@ -128,4 +128,5 @@ if st.button("HESAPLA") or True: # Otomatik çalışsın
         height=400
     )
     
+
     st.warning(f"⚠️ Not: Hesaplamalar {sorgu_tarihi.strftime('%d.%m.%Y')} tarihi baz alınarak yapılmıştır. Yarın ödeme yapılırsa rakam değişecektir.")
